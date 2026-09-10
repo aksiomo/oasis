@@ -9,6 +9,7 @@
 ### 代码结构
 
 client：项目前端
+
 server：项目后端
 
 ### 分支管理
@@ -17,7 +18,9 @@ server：项目后端
 - dev：开发分支
 - git-page：纯前端展示
 
-## 开发分工
+## 项目分工
 
-产品、需求、UI、测试：CR
-架构、开发、实施：Aksiomo
+|分工职责|成员|
+|---|---|
+|产品、需求、UI、测试|[CR](https://github.com/Churong-Leung)|
+|架构、开发、实施|[Aksiomo](https://github.com/aksiomo)|
