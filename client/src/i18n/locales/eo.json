@@ -1,0 +1,22 @@
+{
+  "common": {
+    "base": {
+      "confirm": "Konfirmi",
+      "save": "Konservi",
+      "cancel": "Nuligi"
+    }
+  },
+  "page": {
+    "login": {
+      "welcome": "Bonvenon al OaSis",
+      "slogan": "La sistemo estas preta, la ĉefa persono bonvenu aliri",
+      "form": {
+        "username": "Uzanto konto",
+        "password": "Pasvorto",
+        "remember": "Memoru min",
+        "forgot": "Forgesis pasvorton?",
+        "login": "Enigi sistemon"
+      }
+    }
+  }
+}

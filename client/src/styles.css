@@ -5,6 +5,15 @@
 
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --font-size-header-0: 48px;
+  --font-size-header-1: 32px;
+  --font-size-header-4: 20px;
+
+  --font-weight-bold: 600;
+
+  --aside-width: 300px;
+  --header-height: 60px;
 }
 
 :root {
@@ -22,6 +31,7 @@
   --kicker: rgba(47, 106, 74, 0.9);
   --bg-base: #e7f3ec;
   --header-bg: rgba(251, 255, 248, 0.84);
+  --aside-bg: rgba(251, 255, 248, 0.84);
   --chip-bg: rgba(255, 255, 255, 0.8);
   --chip-line: rgba(47, 106, 74, 0.18);
   --link-bg-hover: rgba(255, 255, 255, 0.9);
@@ -83,4 +93,19 @@ html,
 body,
 #app {
   min-height: 100%;
+}
+
+.h0 {
+  font-size: var(--font-size-header-0);
+  font-weight: var(--font-weight-bold);
+}
+
+.h1 {
+  font-size: var(--font-size-header-1);
+  font-weight: var(--font-weight-bold);
+}
+
+.h4 {
+  font-size: var(--font-size-header-4);
+  font-weight: var(--font-weight-bold);
 }

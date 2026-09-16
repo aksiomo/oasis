@@ -1,0 +1,22 @@
+{
+  "common": {
+    "base": {
+      "confirm": "Confirm",
+      "save": "Save",
+      "cancel": "Cancel"
+    }
+  },
+  "page": {
+    "login": {
+      "welcome": "Welcome to OaSis",
+      "slogan": "The system is ready, the main character please login",
+      "form": {
+        "username": "Username",
+        "password": "Password",
+        "remember": "Remember me",
+        "forgot": "Forgot password?",
+        "login": "Login"
+      }
+    }
+  }
+}

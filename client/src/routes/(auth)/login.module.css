@@ -1,0 +1,65 @@
+@keyframes scale-y-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.9);
+  }
+  50% {
+    transform: scaleY(1.1);
+  }
+}
+
+@keyframes login-bob-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(var(--amp) * -1)); }
+}
+
+@keyframes login-bob-mid {
+  0% { transform: translateY(0); }
+  40.63% { transform: translateY(calc(var(--amp) * -1)); }
+  81.25%, 100% { transform: translateY(0); }
+}
+
+@keyframes login-bob-fast {
+  0% { transform: translateY(0); }
+  34.21% { transform: translateY(calc(var(--amp) * -1)); }
+  68.42%, 100% { transform: translateY(0); }
+}
+
+.pulse {
+  transform-origin: center;
+  animation: scale-y-pulse 3s ease-in-out infinite;
+  scale: 1.5
+}
+
+.login-wave {
+  animation: login-wave 2s ease-in-out infinite alternate;
+}
+
+.login-wave-2 {
+  animation: login-wave 2.5s ease-in-out infinite alternate;
+}
+
+.login-bob-slow {
+  --amp: 50%;
+  animation: login-bob-slow 4.833s ease-in-out infinite;
+}
+
+.login-bob-mid {
+  --amp: 50%;
+  animation: login-bob-mid 4.833s ease-in-out infinite;
+}
+
+.login-bob-fast {
+  --amp: 50%;
+  animation: login-bob-fast 4.833s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-wave,
+  .login-wave-2,
+  .login-bob-slow,
+  .login-bob-mid,
+  .login-bob-fast {
+    animation: none;
+  }
+}

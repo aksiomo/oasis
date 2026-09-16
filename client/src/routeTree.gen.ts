@@ -9,50 +9,154 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as R404RouteImport } from './routes/404'
+import { Route as authLoginRouteImport } from './routes/(auth)/login'
+import { Route as homeBaseRouteRouteImport } from './routes/(home)/_base/route'
+import { Route as homeBaseIndexRouteImport } from './routes/(home)/_base/index'
+import { Route as homeBaseDashboardRouteImport } from './routes/(home)/_base/dashboard'
 
-const IndexRoute = IndexRouteImport.update({
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const authLoginRoute = authLoginRouteImport.update({
+  id: '/(auth)/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const homeBaseRouteRoute = homeBaseRouteRouteImport.update({
+  id: '/(home)/_base',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const homeBaseIndexRoute = homeBaseIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => homeBaseRouteRoute,
+} as any)
+const homeBaseDashboardRoute = homeBaseDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => homeBaseRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/404': typeof R404Route
+  '/login': typeof authLoginRoute
+  '/dashboard': typeof homeBaseDashboardRoute
+  '/': typeof homeBaseIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/404': typeof R404Route
+  '/login': typeof authLoginRoute
+  '/dashboard': typeof homeBaseDashboardRoute
+  '/': typeof homeBaseIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/404': typeof R404Route
+  '/(home)/_base': typeof homeBaseRouteRouteWithChildren
+  '/(auth)/login': typeof authLoginRoute
+  '/(home)/_base/dashboard': typeof homeBaseDashboardRoute
+  '/(home)/_base/': typeof homeBaseIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/$' | '/404' | '/login' | '/dashboard' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/$' | '/404' | '/login' | '/dashboard' | '/'
+  id:
+    | '__root__'
+    | '/$'
+    | '/404'
+    | '/(home)/_base'
+    | '/(auth)/login'
+    | '/(home)/_base/dashboard'
+    | '/(home)/_base/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
+  R404Route: typeof R404Route
+  homeBaseRouteRoute: typeof homeBaseRouteRouteWithChildren
+  authLoginRoute: typeof authLoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(auth)/login': {
+      id: '/(auth)/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof authLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(home)/_base': {
+      id: '/(home)/_base'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof homeBaseRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(home)/_base/': {
+      id: '/(home)/_base/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof homeBaseIndexRouteImport
+      parentRoute: typeof homeBaseRouteRoute
+    }
+    '/(home)/_base/dashboard': {
+      id: '/(home)/_base/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof homeBaseDashboardRouteImport
+      parentRoute: typeof homeBaseRouteRoute
     }
   }
 }
 
+interface homeBaseRouteRouteChildren {
+  homeBaseDashboardRoute: typeof homeBaseDashboardRoute
+  homeBaseIndexRoute: typeof homeBaseIndexRoute
+}
+
+const homeBaseRouteRouteChildren: homeBaseRouteRouteChildren = {
+  homeBaseDashboardRoute: homeBaseDashboardRoute,
+  homeBaseIndexRoute: homeBaseIndexRoute,
+}
+
+const homeBaseRouteRouteWithChildren = homeBaseRouteRoute._addFileChildren(
+  homeBaseRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
+  R404Route: R404Route,
+  homeBaseRouteRoute: homeBaseRouteRouteWithChildren,
+  authLoginRoute: authLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

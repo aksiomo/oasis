@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { IconMoon, IconSun, IconGlobe } from '@douyinfe/semi-icons'
 
 type ThemeMode = 'light' | 'dark' | 'auto'
 
@@ -29,6 +30,12 @@ function applyThemeMode(mode: ThemeMode) {
   }
 
   document.documentElement.style.colorScheme = resolved
+
+  if (resolved === 'dark') {
+    document.body.setAttribute('theme-mode', 'dark')
+  } else {
+    document.body.removeAttribute('theme-mode')
+  }
 }
 
 export default function ThemeToggle() {
@@ -68,7 +75,8 @@ export default function ThemeToggle() {
       : `Theme mode: ${mode}. Click to switch mode.`
 
   return (
-    <button
+    <>
+    {/* <button
       type="button"
       onClick={toggleMode}
       aria-label={label}
@@ -76,6 +84,12 @@ export default function ThemeToggle() {
       className="rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--sea-ink)] shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
     >
       {mode === 'auto' ? 'Auto' : mode === 'dark' ? 'Dark' : 'Light'}
-    </button>
+    </button> */}
+    { mode === 'auto' ?
+      <IconGlobe size="large" onClick={toggleMode} /> : mode === 'dark' ?
+      <IconMoon size="large" onClick={toggleMode} /> :
+      <IconSun size="large" onClick={toggleMode} />
+    }
+    </>
   )
 }
