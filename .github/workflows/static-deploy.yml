@@ -52,9 +52,15 @@ jobs:
 
       - name: Build
         env:
-          NITRO_PRESET: github_pages
-          NITRO_APP_BASE_URL: ${{ steps.pages.outputs.base_path }}
-        run: pnpm build -- --base=${{ steps.pages.outputs.base_path }}
+          GITHUB_PAGES: true
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: pnpm build
+
+      - name: Prepare GitHub Pages fallback
+        run: |
+          cp .output/public/_shell.html .output/public/index.html
+          cp .output/public/_shell.html .output/public/404.html
+          touch .output/public/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

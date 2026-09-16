@@ -15,14 +15,24 @@ const dateFnsTzEsm = join(
   'esm/index.js',
 )
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true'
+const base = isGitHubPages ? process.env.PAGES_BASE_PATH || '/' : '/'
+
 const config = defineConfig({
+  base,
   resolve: {
     tsconfigPaths: true,
     alias: {
       'date-fns-tz': dateFnsTzEsm,
     },
   },
-  plugins: [devtools(), nitro(), tailwindcss(), tanstackStart(), viteReact()],
+  plugins: [
+    devtools(),
+    nitro(),
+    tailwindcss(),
+    tanstackStart(isGitHubPages ? { spa: { enabled: true } } : undefined),
+    viteReact(),
+  ],
   ssr: {
     noExternal: [
       '@douyinfe/semi-ui',
