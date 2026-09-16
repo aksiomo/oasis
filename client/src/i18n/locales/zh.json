@@ -1,0 +1,30 @@
+{
+  "common": {
+    "base": {
+      "confirm": "确定",
+      "save": "保存",
+      "cancel": "取消"
+    }
+  },
+  "page": {
+    "login": {
+      "welcome": "欢迎来到 OaSis",
+      "slogan": "系统已就绪，主角请登录",
+      "form": {
+        "username": "用户账户",
+        "password": "密码",
+        "remember": "记住我",
+        "forgot": "忘记密码？",
+        "login": "登录"
+      }
+    }
+  },
+  "components": {
+    "header": {
+      "search_placeholder": "请输入搜索内容"
+    },
+    "aside": {
+      "dashboard": "仪表盘"
+    }
+  }
+}
