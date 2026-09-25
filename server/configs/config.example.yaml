@@ -1,0 +1,12 @@
+http:
+  addr: ":8080"
+  mode: debug
+postgres:
+  dsn: "postgres://oasis:oasis@localhost:5432/oasis?sslmode=disable"
+redis:
+  addr: "localhost:6379"
+rabbitmq:
+  url: "amqp://guest:guest@localhost:5672/"
+jwt:
+  secret: "change-me"
+  expire: 24h

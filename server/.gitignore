@@ -1,0 +1,45 @@
+# Configuration files
+configs/*
+!configs/config.example.yaml
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Binary files (Build results or Middleware files)
+bin/*
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test and coverage outputs
+*.test
+*.out
+coverage.*
+*.coverprofile
+
+# Debugger binaries (Delve)
+__debug_bin*
+
+# Hot reload caches (Air)
+tmp/
+
+# Logs
+*.log
+
+# Dependency directories
+# vendor/
+
+# Go workspace files
+go.work
+go.work.sum
+
+# IDE files or caches (VSCode, Cursor, etc.)
+.idea/*
+.vscode/*
+.cursor/*
+!settings.json
+!extensions.json
