@@ -1,0 +1,6 @@
+# IDE files or caches (VSCode, Cursor, etc.)
+.idea/*
+.vscode/*
+.cursor/*
+!settings.json
+!extensions.json
