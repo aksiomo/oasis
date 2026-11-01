@@ -1,27 +1,13 @@
-# dependencies
-/node_modules
+# Dependencies
+node_modules
 
-# env
+# Building Cache or Results
+dist
+dist-ssr
+
+# Environments Files
 .env*
 !.env.example
 
-# logs
-*.log*
-
-# editor
-/.vscode/*
-!/.vscode/extensions.json
-!/.vscode/settings.json
-
-# caches
+# Middle Files from Third-parts
 .tanstack
-
-# production
-dist
-dist-ssr
-.output
-.nitro
-.vercel
-.wrangler
-.netlify
-build

@@ -4,3 +4,6 @@
 .cursor/*
 !settings.json
 !extensions.json
+
+# OS Cache
+.DS_Store

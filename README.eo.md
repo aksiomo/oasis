@@ -1,23 +1,39 @@
-# OaSis
+# OASis
 
-Malfermitkoda programaro por aŭtomatigo de procezoj, kunlaboro de Aksiomo kaj CR.
+> AI-Deklaro: La enhavo de ĉi tiu paĝo estas generita de Agent-ark-code-latest
 
-La fasado estas farita per Vite + React + React-Router, la malantaŭo per Go + Gin, PostgreSQL por persista stokado, Redis por kaŝmemoro, kaj RabbitMQ por mesaĝvico.
+Aliaj lingvoversioj:
+[English](./README.md) | [简体中文](./README.zh-cn.md)
 
-## Koda strukturo kaj branĉadministrado
+Ĉi tio estas OA-sistemo (Ofica Aŭtomatiga Sistemo), produkto de [Aksiomo](https://github.com/aksiomo) kaj [CR](https://github.com/Churong-Leung).  
+La kliento estas funkciigita de `Vite`, `React` kaj `Tanstack-Router`.  
+La servilo estas funkciigita de `Go`, `Gin` kaj `GORM`.
 
-### Koda strukturo
+## Pri Ĉi Tiu Deponejo
 
-client: fasado de la projekto
-server: malantaŭo de la projekto
+### Baza Strukturo
 
-### Branĉadministrado
+```plaintext
+|- client # kliento (antaŭilo)
+|- server # servilo (malantaŭilo)
+|- ...
+```
 
-- main: ĉefa branĉo
-- dev: disvolva branĉo
-- git-page: nur-fasada prezento
+### Branĉoj
 
-## Laborodivido
+```plaintext
+|- main # ĉefa branĉo
+|- dev # evoluiga branĉo
+|- (staging) # testa branĉo, eble aldoniĝos poste
+```
 
-Produkto, postuloj, UI, testado: CR
-Arkitekturo, disvolvado, efektivigo: Aksiomo
+### Projektanoj
+
+|Taskoj|Kiu|
+|---|---|
+|PM, BA, UI, TE|[CR](https://github.com/Churong-Leung)|
+|AA, RD, SIE|[Aksiomo](https://github.com/aksiomo)|
+
+## Sistemaj Ekrankopioj
+
+<img width="100%" alt="Ensaluta paĝo" src="https://github.com/user-attachments/assets/5eb14155-42dd-4ef2-be7e-3fe60b45e14e" />

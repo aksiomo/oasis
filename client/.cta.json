@@ -1,20 +1,18 @@
 {
+  "bundler": "vite",
   "projectName": "client",
   "mode": "file-router",
   "typescript": true,
   "packageManager": "pnpm",
-  "includeExamples": true,
+  "includeExamples": false,
   "tailwind": true,
   "projectPreset": "default",
+  "routerOnly": true,
   "addOnOptions": {},
   "git": false,
   "install": true,
   "intent": true,
-  "routerOnly": false,
   "version": 1,
   "framework": "react",
-  "chosenAddOns": [
-    "eslint",
-    "vercel"
-  ]
+  "chosenAddOns": []
 }
