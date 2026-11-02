@@ -11,3 +11,30 @@ This is the client for OASis, Powered by React & Tanstack-Router.
 ```plaintext
 
 ```
+
+## Code Style
+
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) handles code-quality rules (see `.oxlintrc.json`).
+- [Prettier](https://prettier.io/) handles formatting (see `.prettierrc.json`): **single quotes, no semicolons**.
+
+```shell
+pnpm lint         # check with oxlint
+pnpm lint:fix     # auto-fix lint issues
+pnpm format       # format the whole project with prettier
+pnpm format:check # check formatting only (for CI)
+```
+
+## UI Components
+
+[shadcn/ui](https://ui.shadcn.com/) is initialized (Radix base, Nova preset, Tailwind v4).
+Components are generated into `src/components/ui/` and configured via `components.json`.
+
+```shell
+pnpm ui:add button card   # add components
+```
+
+Then import them like:
+
+```ts
+import { Button } from '@/components/ui/button'
+```

@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Building Cache or Results
+dist
+dist-ssr
+coverage
+
+# Lockfiles
+pnpm-lock.yaml
+
+# Middle Files from Third-parts
+.tanstack
+src/routeTree.gen.ts
