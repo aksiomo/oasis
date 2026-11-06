@@ -10,9 +10,11 @@ type DBConfig struct {
 	DBType   string `toml:"db_type"`
 	Host     string `toml:"host"`
 	Port     int32  `toml:"port"`
+	Name     string `toml:"name"`
 	User     string `toml:"user"`
 	Password string `toml:"password"`
 	MaxConn  int32  `toml:"max_conn"`
+	TimeZone string `toml:"time_zone"`
 }
 
 type MQConfig struct {
